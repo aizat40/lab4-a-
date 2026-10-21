@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+</head>
+<body>
+    <label for="userInput">Enter a number:</label>
+<input type="text" id="userInput" placeholder="Enter a number">
+<button id="checkBtn" type="button">Check</button>
+<p id="result" role="status" aria-live="polite"></p>
+
+<script>
+    document.getElementById("checkBtn").addEventListener("click", checkNumber);
+    function checkNumber() {
+        const userInput = document.getElementById("userInput").value;
+        const resultElement = document.getElementById("result");
+        if (isNaN(userInput) || userInput.trim() === "") {
+            resultElement.innerHTML = "Please enter a valid number.";
+        } else {
+            if (parseFloat(userInput) > 10) {
+                resultElement.innerHTML = " The number is higher than 10";
+            } else if (parseFloat(userInput) === 10) {
+                resultElement.innerHTML = " The number is equal to 10";
+            } else if (parseFloat(userInput) < 10) { 
+                resultElement.innerHTML = " The number is lower than 10";
+            }
+        }
+    }
+</script>
+</body>
+</html>
